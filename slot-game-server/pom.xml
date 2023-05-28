@@ -61,6 +61,11 @@
             <groupId>org.jboss.slf4j</groupId>
             <artifactId>slf4j-jboss-logmanager</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.lsj</groupId>
+            <artifactId>math</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 

@@ -10,7 +10,6 @@ import javax.websocket.server.ServerEndpoint;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.List;
 
 @ServerEndpoint(value = "/")
 @ApplicationScoped
