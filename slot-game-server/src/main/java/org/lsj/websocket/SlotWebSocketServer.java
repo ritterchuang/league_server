@@ -1,15 +1,23 @@
 package org.lsj.websocket;
 
-import org.lsj.math.core.ISeverTableCommandSlot;
-import org.lsj.math.core.TableFactory;
-import org.lsj.math.entity.CmdOut_NgSpin;
-import org.lsj.util.JsonUtil;
+import com.lx.db.CompanyFieldObjBuilder;
+import com.lx.gs.FieldConfigBuilder;
+import com.lx.gs.math.core.common.table.ISeverTableCommandSlot;
+import com.lx.gs.math.core.common.table.TableFactory;
+import com.lx.gs.math.core.common.table.entity.exception.TableException;
+import com.lx.gs.math.entity.CmdOut_NgSpin;
+import com.lx.gs.pool.AgencyPool;
+import com.lx.gs.pool.PersonControlConfig;
+import com.lx.gs.user.User;
+import com.lx.utils.JsonUtil;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @ServerEndpoint(value = "/")
 @ApplicationScoped
@@ -25,7 +33,23 @@ public class SlotWebSocketServer {
     @OnOpen
     public void onOpen(Session session) {
         // 1. 建立牌桌 TODO 資訊
-        this.mathTable = tableFactory.createISeverTableCommandSlot(1, fieldConfig, 101, agencyPool, personControlConfig, user);
+        try {
+            this.mathTable = tableFactory.createISeverTableCommandSlot(
+                    new AtomicInteger(1),
+                    new FieldConfigBuilder().setFieldConfigMap(new HashMap<>(){{
+                        put(101, new CompanyFieldObjBuilder()
+                                .setLimitMin(0)
+                                .setLimitKick(0)
+                                .setBase(1)
+                                .createCompanyFieldObj());
+                    }}).createFieldConfig(),
+                    101,
+                    new AgencyPool(),
+                    new PersonControlConfig(null, null),
+                    new User());
+        } catch (TableException e) {
+            e.printStackTrace();
+        }
 //        LOG.info("{} session connected, session id: {}", LogUtil.getLogPrefix(session, 0), session.getId());
     }
 

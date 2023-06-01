@@ -1,0 +1,5 @@
+package com.lx.gs.math.core.slot.mathSlotConfigHlr.enity.sever.roundConfig.roundCascadeGameConfig;
+
+// 一般遊戲局額外設定父類別
+public class RoundCascadeGameConfigExtend {
+}
