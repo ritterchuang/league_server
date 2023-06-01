@@ -1,15 +1,15 @@
 package org.lsj.websocket;
 
-import com.lx.db.CompanyFieldObjBuilder;
-import com.lx.gs.FieldConfigBuilder;
-import com.lx.gs.math.core.common.table.ISeverTableCommandSlot;
-import com.lx.gs.math.core.common.table.TableFactory;
-import com.lx.gs.math.core.common.table.entity.exception.TableException;
-import com.lx.gs.math.entity.CmdOut_NgSpin;
-import com.lx.gs.pool.AgencyPool;
-import com.lx.gs.pool.PersonControlConfig;
-import com.lx.gs.user.User;
-import com.lx.utils.JsonUtil;
+import org.lsj.db.CompanyFieldObjBuilder;
+import org.lsj.gs.FieldConfigBuilder;
+import org.lsj.gs.math.core.common.table.ISeverTableCommandSlot;
+import org.lsj.gs.math.core.common.table.TableFactory;
+import org.lsj.gs.math.core.common.table.entity.exception.TableException;
+import org.lsj.gs.math.entity.CmdOut_NgSpin;
+import org.lsj.gs.pool.AgencyPool;
+import org.lsj.gs.pool.PersonControlConfig;
+import org.lsj.gs.user.User;
+import org.lsj.utils.JsonUtil;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.websocket.*;

@@ -2,3 +2,7 @@
 slot-game-server/target/
 *.class
 math-integration-tester/target/classes/com/lx/gs/mathStr/output/rawData.csv
+math/target/
+common-test-lib/target/
+math-integration-tester/target/
+math-integration-tester/src/main/java/org/lsj/gs/mathStr/output/rawData.csv
