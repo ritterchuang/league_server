@@ -1,5 +1,14 @@
-.idea/
-*/target/*
+#Maven
+target/
 *.class
-math-integration-tester/src/main/java/org/lsj/gs/mathStr/output/rawData.csv
+
+#Ide
+.idea/
+
+#Editor
 *.bak
+
+#Math
+math-integration-tester/src/main/java/org/lsj/gs/mathStr/output/rawData.csv
+
+
