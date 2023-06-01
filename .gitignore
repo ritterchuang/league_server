@@ -1,2 +1,4 @@
 .idea/
 slot-game-server/target/
+*.class
+math-integration-tester/target/classes/com/lx/gs/mathStr/output/rawData.csv

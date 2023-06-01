@@ -22,6 +22,7 @@
         <module>slot-game-server</module>
         <module>math</module>
         <module>common-lib</module>
+        <module>math-integration-tester</module>
     </modules>
 
 </project>
