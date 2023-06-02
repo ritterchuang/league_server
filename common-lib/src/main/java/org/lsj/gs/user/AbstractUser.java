@@ -1,10 +1,13 @@
 package org.lsj.gs.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
 import javax.websocket.Session;
 
 // 玩家資訊
-//@RegisterForReflection
-//@JsonIgnoreProperties(ignoreUnknown = true)
+@RegisterForReflection
+@JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class AbstractUser implements IUser, Cloneable {
     private int uid; // 玩家識別碼
     private String phone; // 電話號碼

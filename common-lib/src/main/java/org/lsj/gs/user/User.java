@@ -1,9 +1,11 @@
 package org.lsj.gs.user;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
 import javax.websocket.Session;
 
 // 使用者
-//@RegisterForReflection
+@RegisterForReflection
 public class User extends AbstractUser{
 
     public User(){}
