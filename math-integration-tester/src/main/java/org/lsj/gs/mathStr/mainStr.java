@@ -8,7 +8,7 @@ import io.quarkus.runtime.QuarkusApplication;
 
 public class mainStr {
     public static String[] scenarioConfigContainStringArray = new String[]{"00_"};
-    public static String[] gameCenterMgrConfigContainStringArray = new String[]{"_"};
+    public static String[] gameCenterMgrConfigContainStringArray = new String[]{"302_"};
     public static String[] gamePlayerFactoryConfigContainStringArray = new String[]{"00_"};
     public static String[] poolCtrConfigContainStringArray = new String[]{"01_R25"};
     public static String[] stnConfigContainStringArray = new String[]{"00_"};
