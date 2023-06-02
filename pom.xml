@@ -20,6 +20,10 @@
 
     <modules>
         <module>slot-game-server</module>
+        <module>math</module>
+        <module>common-lib</module>
+        <module>math-integration-tester</module>
+        <module>common-test-lib</module>
     </modules>
 
 </project>

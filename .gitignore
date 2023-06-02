@@ -1,2 +1,14 @@
+#Maven
+target/
+*.class
+
+#Ide
 .idea/
-slot-game-server/target/
+
+#Editor
+*.bak
+
+#Math
+math-integration-tester/src/main/java/org/lsj/gs/mathStr/output/rawData.csv
+
+

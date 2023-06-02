@@ -24,13 +24,10 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
-
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-scheduler</artifactId>
         </dependency>
-
-
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-arc</artifactId>
@@ -60,6 +57,18 @@
         <dependency>
             <groupId>org.jboss.slf4j</groupId>
             <artifactId>slf4j-jboss-logmanager</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.lsj</groupId>
+            <artifactId>common-lib</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.lsj</groupId>
+            <artifactId>math</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
     </dependencies>
