@@ -36,14 +36,19 @@ public class SlotWebSocketServer {
         try {
             this.mathTable = tableFactory.createISeverTableCommandSlot(
                     new AtomicInteger(1),
-                    new FieldConfigBuilder().setFieldConfigMap(new HashMap<>(){{
-                        put(101, new CompanyFieldObjBuilder()
+                    new FieldConfigBuilder()
+                            .setGameId(302)
+                            .setMinUser((short) 1)
+                            .setMaxUser((short) 1)
+                            .setFieldConfigMap(new HashMap<>(){{
+                        put(302101, new CompanyFieldObjBuilder()
+                                .setGameId(302)
                                 .setLimitMin(0)
                                 .setLimitKick(0)
                                 .setBase(1)
                                 .createCompanyFieldObj());
                     }}).createFieldConfig(),
-                    101,
+                    302101,
                     new AgencyPool(),
                     new PersonControlConfig(null, null),
                     new User());
