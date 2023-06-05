@@ -79,16 +79,13 @@ public class TableGameResourceLucky777Default extends AbstractTableGameResourceS
                     {
                         add(1.0);
                         add(2.0);
+                        add(3.0);
+                        add(4.0);
                         add(5.0);
                         add(10.0);
                         add(20.0);
-                        add(30.0);
                         add(50.0);
                         add(100.0);
-                        add(200.0);
-                        add(300.0);
-                        add(600.0);
-                        add(1000.0);
                     }
                 },
                 ConstMathSlot.BetType.NONE,
@@ -352,12 +349,7 @@ public class TableGameResourceLucky777Default extends AbstractTableGameResourceS
                         ));
 
                     }
-                }), new ProgressConfig(ConstMathSlot.ProgressType.ROUND, new ProgressConfigExtendRound(1, 0, 1)), new SpecialFeatureConfigCluster(new ArrayList<>() {
-                    {
-                        add(new SpecialFeatureConfig(ConstMathSlot.SpecialFeatureType.SF_02, ConstMathSlot.TriggerEvent.TRIGGER_01, 2));
-                        add(new SpecialFeatureConfig(ConstMathSlot.SpecialFeatureType.SF_03, ConstMathSlot.TriggerEvent.TRIGGER_02, 10));
-                        add(new SpecialFeatureConfig(ConstMathSlot.SpecialFeatureType.SF_04, ConstMathSlot.TriggerEvent.TRIGGER_03, 20));
-                    }
+                }), new ProgressConfig(ConstMathSlot.ProgressType.ROUND, new ProgressConfigExtendRound(1, 0, 1)), new SpecialFeatureConfigCluster(new ArrayList<>() {{}
                 }), new ReadyHandConfigCluster(List.of(
                         new ReadyHandConfig(ConstMathSlot.ReadyHandType.READY_HAND_01, ConstMathSlot.ReadyHandLimitType.NO_LIMIT)
                 )), ConstMathSlot.RoundNormalGameType.LUCKY777_BASEGAME,
@@ -397,19 +389,10 @@ public class TableGameResourceLucky777Default extends AbstractTableGameResourceS
                             {
                                 add(ConstMathSlot.Condition.CD_FALSE);
                                 add(ConstMathSlot.Condition.CD_TRUE);
-                                add(ConstMathSlot.Condition.CD_FALSE);
                             }
                         });
                         add(new ArrayList<>(){
                             {
-                                add(ConstMathSlot.Condition.CD_FALSE);
-                                add(ConstMathSlot.Condition.CD_FALSE);
-                                add(ConstMathSlot.Condition.CD_01);
-                            }
-                        });
-                        add(new ArrayList<>(){
-                            {
-                                add(ConstMathSlot.Condition.CD_FALSE);
                                 add(ConstMathSlot.Condition.CD_FALSE);
                                 add(ConstMathSlot.Condition.CD_FALSE);
                             }
@@ -422,8 +405,8 @@ public class TableGameResourceLucky777Default extends AbstractTableGameResourceS
         AnimationConfig animationConfig = new AnimationConfig(ConstMathSlot.AnimationType.ODDS_ANIMATION, new AnimationConfigExtendOddsAnimation(
                 new HashMap<>(){
                     {
-                        put(ConstMathSlot.OddsWinType.BIG_WIN, 30);
-                        put(ConstMathSlot.OddsWinType.MEGA_WIN, 50);
+                        put(ConstMathSlot.OddsWinType.BIG_WIN, 10);
+                        put(ConstMathSlot.OddsWinType.MEGA_WIN, 30);
                         put(ConstMathSlot.OddsWinType.ULTRA_WIN, 100);
                     }
                 }
