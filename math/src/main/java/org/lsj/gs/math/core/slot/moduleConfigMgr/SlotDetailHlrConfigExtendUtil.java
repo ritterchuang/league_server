@@ -32,6 +32,8 @@ import org.lsj.gs.math.games.lll_java.entity.config.SlotDetailHlrConfigExtendLll
 import org.lsj.gs.math.games.lmjjc_java.entity.ConstLmjjcJava;
 import org.lsj.gs.math.games.lmjjc_java.entity.config.SlotDetailHlrConfigExtendLmjjcBaseGame;
 import org.lsj.gs.math.games.lmjjc_java.entity.config.SlotDetailHlrConfigExtendLmjjcFreeGame;
+import org.lsj.gs.math.games.lucky777.enity.ConstLucky777;
+import org.lsj.gs.math.games.lucky777.enity.config.SlotDetailHlrConfigExtendLucky777BaseGame;
 import org.lsj.gs.math.games.mjws_java.enity.ConstMjwsJava;
 import org.lsj.gs.math.games.mjws_java.enity.config.SlotDetailHlrConfigExtendMjwsBaseGame;
 import org.lsj.gs.math.games.mjws_java.enity.config.SlotDetailHlrConfigExtendMjwsFreeGame;
@@ -68,6 +70,11 @@ public class SlotDetailHlrConfigExtendUtil {
     // 計算詳細記錄計算者設定檔 TODO DEFAULT
     public SlotDetailHlrConfigExtend calculateSlotDetailCtrConfigExtend (ConstMathSlot.SlotDetailType slotDetailType, GameStateConfig gameStateConfig) {
         switch (slotDetailType) {
+            case LUCKY777_BASEGAME: return new SlotDetailHlrConfigExtendLucky777BaseGame(
+                    ConstLucky777.SymbolEnum.getSymbolIdStringMap(),
+                    gameStateConfig.getRoundConfig().getFrameConfig(),
+                    ((RoundConfigNormal)gameStateConfig.getRoundConfig()).getReelConfig(),
+                    (gameStateConfig.getRoundConfig()).getSymbolConfig());
             case DYDB_BASEGAME: return new SlotDetailHlrConfigExtendDydbBaseGame(
                     ConstDydbJava.SymbolEnumDydbJava.getSymbolIdStringMap(),
                     gameStateConfig.getRoundConfig().getFrameConfig(),

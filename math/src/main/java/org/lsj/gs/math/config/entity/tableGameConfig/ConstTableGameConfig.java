@@ -3,6 +3,8 @@ package org.lsj.gs.math.config.entity.tableGameConfig;
 // 牌桌遊戲設定定義
 public class ConstTableGameConfig {
     public enum TableGameConfigResource {
+        LUCKY777_DEFAULT,
+
         HHDZ_JAVA_DEFAULT,
         BJL_JAVA_DEFAULT,
         BRNN_JAVA_DEFAULT,

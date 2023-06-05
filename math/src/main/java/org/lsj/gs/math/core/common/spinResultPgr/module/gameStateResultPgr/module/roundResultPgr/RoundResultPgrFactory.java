@@ -40,6 +40,7 @@ public class RoundResultPgrFactory {
     private IRoundResultPgr createRoundNormalResultPgr(ClientRoundResultPgrConfig clientRoundResultPgrConfig, ITableUtil tableUtil) {
         ClientRoundResultNormalPgrConfig config = (ClientRoundResultNormalPgrConfig) clientRoundResultPgrConfig;
         switch (config.getRoundNormalGameType()) {
+            case LUCKY777_BASEGAME: return new RoundResultNormalPgrLucky777BaseGame(config, tableUtil);
             case PXKY_BASEGAME: return new RoundResultNormalPgrPxkyBaseGame(config, tableUtil);
             case DYDB_BASEGAME: return new RoundResultNormalPgrDydbBaseGame(config, tableUtil);
             case DYDB_FREEGAME: return new RoundResultNormalPgrDydbFreeGame(config, tableUtil);

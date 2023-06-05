@@ -47,6 +47,8 @@ public class ConstStrConfigResource {
 
     // 遊戲中心管理器設定資源
     public enum GameCenterMgrConfigResourceEnum {
+        R_001_LUCKY777_NORMAL(new GameCenterMgrR001Lucky777Normal().create()),
+
         R_98_HIGH1000MIN_NORMAL(new GameCenterMgrR98High1000MinNormal().create()),
         R_99_MIX_GAME(new GameCenterMgrR99MixGame().create()),
         R_105_HHDZ_JAVA_NORMAL(new GameCenterMgrR105HhdzJavaNormal().create()),

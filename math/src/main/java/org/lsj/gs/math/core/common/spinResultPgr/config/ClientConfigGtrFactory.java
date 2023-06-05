@@ -7,6 +7,7 @@ public class ClientConfigGtrFactory {
 
     public IClientConfigGtr create(int gameId) {
         switch (gameId) {
+            case 1: return new ClientConfigGtr_001();
             case 301: return new ClientConfigGtr_301();
             case 302: return new ClientConfigGtr_302();
             case 303: return new ClientConfigGtr_303();

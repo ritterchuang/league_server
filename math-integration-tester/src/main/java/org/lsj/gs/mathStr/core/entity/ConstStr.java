@@ -9,6 +9,8 @@ import java.util.Map;
 public class ConstStr {
     // 遊戲類型對應表
     public final static Map<Integer, GameType> gameEnum2GameTypeMap = new HashMap<>(){{
+        put(GameId.LUCKY777.getId(), GameType.SLOT);
+
         put(GameId.HHDZ_JAVA.getId(), GameType.BAIREN);
         put(GameId.BJL_JAVA.getId(), GameType.BAIREN);
         put(GameId.BRNN_JAVA.getId(), GameType.BAIREN);

@@ -20,6 +20,7 @@ import org.lsj.gs.math.games.hjxb_java.module.logic.slotDetailCtr.SlotDetailHlrH
 import org.lsj.gs.math.games.lll_java.module.logic.slotDetailCtr.SlotDetailHlrLll;
 import org.lsj.gs.math.games.lmjjc_java.module.logic.slotDetailCtr.SlotDetailHlrLmjjcBaseGame;
 import org.lsj.gs.math.games.lmjjc_java.module.logic.slotDetailCtr.SlotDetailHlrLmjjcFreeGame;
+import org.lsj.gs.math.games.lucky777.module.logic.slotDetailCtr.SlotDetailHlrLucky777BaseGame;
 import org.lsj.gs.math.games.mjws_java.module.logic.slotDetailCtr.SlotDetailHlrMjwsBaseGame;
 import org.lsj.gs.math.games.mjws_java.module.logic.slotDetailCtr.SlotDetailHlrMjwsFreeGame;
 import org.lsj.gs.math.games.olldbz_java.module.logic.slotDetailCtr.SlotDetailHlrOlldbzBaseGame;
@@ -45,6 +46,7 @@ public class SlotDetailHlrFactory {
     // 創建虎機詳細記錄計算者
     public ISlotDetailHlr create(SlotDetailHlrConfig slotDetailHlrConfig, ITableUtil tableUtil) {
         switch (slotDetailHlrConfig.getSlotDetailType()) {
+            case LUCKY777_BASEGAME: return new SlotDetailHlrLucky777BaseGame(slotDetailHlrConfig, tableUtil);
             case PXKY_BASEGAME: return new SlotDetailHlrPxky(slotDetailHlrConfig, tableUtil);
             case DYDB_BASEGAME: return new SlotDetailHlrDydbBaseGame(slotDetailHlrConfig, tableUtil);
             case DYDB_FREEGAME: return new SlotDetailHlrDydbFreeGame(slotDetailHlrConfig, tableUtil);

@@ -8,6 +8,7 @@ import java.util.Map;
  */
 public enum GameId {
     INVALID(0, GameType.INVALID), // 無效
+    LUCKY777(1, GameType.SLOT), // LUCKY777
     HHDZ_JAVA(105, GameType.BAIREN), // 新紅黑大戰
     BJL_JAVA(109, GameType.BAIREN), // 新百家樂
     BRNN_JAVA(110, GameType.BAIREN), // 新百人牛牛
