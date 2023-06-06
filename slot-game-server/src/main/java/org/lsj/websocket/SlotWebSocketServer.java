@@ -5,6 +5,7 @@ import org.lsj.gs.FieldConfigBuilder;
 import org.lsj.gs.math.core.common.table.ISeverTableCommandSlot;
 import org.lsj.gs.math.core.common.table.TableFactory;
 import org.lsj.gs.math.core.common.table.entity.exception.TableException;
+import org.lsj.gs.math.core.common.table.entity.message.slot.ClientSpinRequest;
 import org.lsj.gs.math.core.common.table.entity.message.slot.betSpinTypeExtend.BetSpinTypeExtend;
 import org.lsj.gs.math.core.slot.ConstMathSlot;
 import org.lsj.gs.math.core.slot.clientSpinRequestHlr.enity.SpinRequest;
@@ -41,21 +42,24 @@ public class SlotWebSocketServer {
             this.mathTable = tableFactory.createISeverTableCommandSlot(
                     new AtomicInteger(1),
                     new FieldConfigBuilder()
-                            .setGameId(302)
+                            .setGameId(1)
                             .setMinUser((short) 1)
                             .setMaxUser((short) 1)
                             .setFieldConfigMap(new HashMap<>(){{
-                        put(302101, new CompanyFieldObjBuilder()
-                                .setGameId(302)
+                        put(1101, new CompanyFieldObjBuilder()
+                                .setGameId(1)
                                 .setLimitMin(0)
                                 .setLimitKick(0)
                                 .setBase(1)
                                 .createCompanyFieldObj());
                     }}).createFieldConfig(),
-                    302101,
+                    1101,
                     new AgencyPool(),
                     new PersonControlConfig(null, null),
-                    new UserBdr().setSession(session).createUser());
+                    new UserBdr()
+                            .setBalance(10000)
+                            .setSession(session)
+                            .createUser());
         } catch (TableException e) {
             e.printStackTrace();
         }
@@ -85,19 +89,19 @@ public class SlotWebSocketServer {
         // 2. 取得結果 TODO 與客端協議 仍在設計中
         try {
             this.mathTable.getSpinResult(JsonUtil.getInstance().writeValueAsStringWithoutException(
-                    new SpinRequest(1,1, ConstMathSlot.BetType.NONE, ConstMathSlot.SpinType.NORMAL, new BetSpinTypeExtend())
+                    new ClientSpinRequest(1, ConstMathSlot.BetType.NONE, ConstMathSlot.SpinType.NORMAL, ConstMathSlot.BetSpinType.NONE_NORMAL,new BetSpinTypeExtend())
             ));
 
-            this.mathTable.sendSpinResultToHumanPlayer();
+            this.mathTable.sendCmdOutResultToHumanPlayer();
         } catch (TableException e) {
             e.printStackTrace();
         }
-        CmdOut_NgSpin cmdOut_ngSpin = this.mathTable.getSpinResult2(message);
-        String fakeDataString = JsonUtil.getInstance().writeValueAsStringWithoutException(cmdOut_ngSpin);
-        ByteBuffer messageByteBuffer = this.stringToByteBuffer(fakeDataString);
-        System.out.println("send message: " + fakeDataString);
+//        CmdOut_NgSpin cmdOut_ngSpin = this.mathTable.getSpinResult2(message);
+//        String fakeDataString = JsonUtil.getInstance().writeValueAsStringWithoutException(cmdOut_ngSpin);
+//        ByteBuffer messageByteBuffer = this.stringToByteBuffer(fakeDataString);
+//        System.out.println("send message: " + fakeDataString);
         try {
-            session.getBasicRemote().sendBinary(messageByteBuffer);
+//            session.getBasicRemote().sendBinary(messageByteBuffer);
 //            if (session.isOpen()) {
 ////                LOG.debug("{} send response, message: {}", LogUtil.getLogPrefix(session, 0), new String(messageByteBuffer.array(), StandardCharsets.UTF_8));
 //            } else {
