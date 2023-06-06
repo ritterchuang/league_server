@@ -5,10 +5,14 @@ import org.lsj.gs.FieldConfigBuilder;
 import org.lsj.gs.math.core.common.table.ISeverTableCommandSlot;
 import org.lsj.gs.math.core.common.table.TableFactory;
 import org.lsj.gs.math.core.common.table.entity.exception.TableException;
+import org.lsj.gs.math.core.common.table.entity.message.slot.betSpinTypeExtend.BetSpinTypeExtend;
+import org.lsj.gs.math.core.slot.ConstMathSlot;
+import org.lsj.gs.math.core.slot.clientSpinRequestHlr.enity.SpinRequest;
 import org.lsj.gs.math.entity.CmdOut_NgSpin;
 import org.lsj.gs.pool.AgencyPool;
 import org.lsj.gs.pool.PersonControlConfig;
 import org.lsj.gs.user.User;
+import org.lsj.gs.user.UserBdr;
 import org.lsj.utils.JsonUtil;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -51,7 +55,7 @@ public class SlotWebSocketServer {
                     302101,
                     new AgencyPool(),
                     new PersonControlConfig(null, null),
-                    new User());
+                    new UserBdr().setSession(session).createUser());
         } catch (TableException e) {
             e.printStackTrace();
         }
@@ -79,6 +83,15 @@ public class SlotWebSocketServer {
         System.out.println("received message: " + message);
 
         // 2. 取得結果 TODO 與客端協議 仍在設計中
+        try {
+            this.mathTable.getSpinResult(JsonUtil.getInstance().writeValueAsStringWithoutException(
+                    new SpinRequest(1,1, ConstMathSlot.BetType.NONE, ConstMathSlot.SpinType.NORMAL, new BetSpinTypeExtend())
+            ));
+
+            this.mathTable.sendSpinResultToHumanPlayer();
+        } catch (TableException e) {
+            e.printStackTrace();
+        }
         CmdOut_NgSpin cmdOut_ngSpin = this.mathTable.getSpinResult2(message);
         String fakeDataString = JsonUtil.getInstance().writeValueAsStringWithoutException(cmdOut_ngSpin);
         ByteBuffer messageByteBuffer = this.stringToByteBuffer(fakeDataString);

@@ -72,6 +72,11 @@ public class TableCommandSlotWpr implements ISeverTableCommandSlot {
     }
 
     @Override
+    public void sendCmdOutResultToHumanPlayer(){
+        this.table.sendCmdOutResultToHumanPlayer();
+    }
+
+    @Override
     public void sendSpinResultToHumanPlayer(){
         this.table.sendSpinResultToHumanPlayer();
     }
