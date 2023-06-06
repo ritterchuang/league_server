@@ -8,6 +8,8 @@ import org.lsj.gs.mathBoardGtr.config.resources.playGameField.*;
 public class PlayGameFieldConfigReader {
     public PlayGameFieldConfig getConfig(ConstPlayGameField.PlayGameFieldResource playGameFieldResource){
         switch(playGameFieldResource){
+            case R001_LUCKY777_NORMAL: return new PlayGameFieldR001Lucky777Normal().create();
+
             case R105_HHDZ_JAVA_NORMAL: return new PlayGameFieldR105HhdzJavaNormal().create();
             case R109_BJL_JAVA_NORMAL: return new PlayGameFieldR109BjlJavaNormal().create();
             case R110_BRNN_JAVA_NORMAL: return new PlayGameFieldR110BrnnJavaNormal().create();

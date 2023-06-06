@@ -3,6 +3,8 @@ package org.lsj.gs.mathBoardGtr.config.entity.playGameField;
 // 遊戲房間定義
 public class ConstPlayGameField {
     public enum PlayGameFieldResource {
+        R001_LUCKY777_NORMAL,
+
         R105_HHDZ_JAVA_NORMAL,
         R109_BJL_JAVA_NORMAL,
         R110_BRNN_JAVA_NORMAL,

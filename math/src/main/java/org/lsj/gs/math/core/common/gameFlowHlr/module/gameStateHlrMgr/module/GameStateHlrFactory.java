@@ -24,6 +24,7 @@ import org.lsj.gs.math.games.lll_java.entity.config.GameStateConfigExtendLllBase
 import org.lsj.gs.math.games.lll_java.module.gameStateHlr.GameStateHlrLllBaseGame;
 import org.lsj.gs.math.games.lmjjc_java.module.gameStateHlr.GameStateHlrLmjjcBaseGame;
 import org.lsj.gs.math.games.lmjjc_java.module.gameStateHlr.GameStateHlrLmjjcFreeGame;
+import org.lsj.gs.math.games.lucky777.module.gameStateHlr.GameStateHlrLucky777BaseGame;
 import org.lsj.gs.math.games.mjws_java.module.gameStateHlr.GameStateHlrMjwsBaseGame;
 import org.lsj.gs.math.games.mjws_java.module.gameStateHlr.GameStateHlrMjwsFreeGame;
 import org.lsj.gs.math.games.olldbz_java.module.gameStateHlr.GameStateHlrOlldbzBaseGame;
@@ -53,6 +54,7 @@ public class GameStateHlrFactory {
     // 創建遊戲狀態
     public IGameStateHlr create(int conditionId, int gameStateId, GameStateConfig gameStateConfig, ILogicSlot logicSlot, ITableUtilSlot tableUtilSlot) {
         switch (gameStateConfig.getGameStateType()) {
+            case LUCKY777_BASEGAME: return new GameStateHlrLucky777BaseGame(conditionId, gameStateId, tableUtilSlot, logicSlot, gameStateConfig);
             case PXKY_BASEGAME: return new GameStateHlrPxkyBaseGame(
                                     conditionId,
                                     gameStateId,

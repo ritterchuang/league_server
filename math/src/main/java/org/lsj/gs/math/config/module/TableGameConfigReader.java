@@ -23,6 +23,7 @@ import org.lsj.gs.math.config.resources.tableGameConfig.games.jcby_java.TableGam
 import org.lsj.gs.math.config.resources.tableGameConfig.games.lhd_java.TableGameResourceLhdJavaDefault;
 import org.lsj.gs.math.config.resources.tableGameConfig.games.lll_java.TableGameResourceLllJavaDefault;
 import org.lsj.gs.math.config.resources.tableGameConfig.games.lmjjc_java.TableGameResourceLmjjcJavaDefault;
+import org.lsj.gs.math.config.resources.tableGameConfig.games.lucky777.TableGameResourceLucky777Default;
 import org.lsj.gs.math.config.resources.tableGameConfig.games.lznn_java.TableGameResourceLznnJavaDefault;
 import org.lsj.gs.math.config.resources.tableGameConfig.games.mjws_java.TableGameResourceMjwsJavaDefault;
 import org.lsj.gs.math.config.resources.tableGameConfig.games.mybjl_java.TableGameResourceMybjlJavaDefault;
@@ -61,6 +62,8 @@ public class TableGameConfigReader {
 
     public TableGameConfigReader() {
         this.tableGameConfigMap = new HashMap<>();
+        this.tableGameConfigMap.put(TableGameConfigResource.LUCKY777_DEFAULT, new TableGameResourceLucky777Default().create());
+
         this.tableGameConfigMap.put(TableGameConfigResource.HHDZ_JAVA_DEFAULT, new TableGameResourceHhdzJavaDefault().create());
         this.tableGameConfigMap.put(TableGameConfigResource.BJL_JAVA_DEFAULT, new TableGameResourceBjlJavaDefault().create());
         this.tableGameConfigMap.put(TableGameConfigResource.BRNN_JAVA_DEFAULT, new TableGameResourceBrnnJavaDefault().create());

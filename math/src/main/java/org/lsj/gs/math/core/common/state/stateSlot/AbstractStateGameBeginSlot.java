@@ -2,6 +2,7 @@ package org.lsj.gs.math.core.common.state.stateSlot;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import org.lsj.gs.math.core.common.ConstMathCommon;
+import org.lsj.gs.math.core.common.cmdOutResultPgr.entity.CmdOutResult;
 import org.lsj.gs.math.core.common.gameAdjust.IGameAdjust;
 import org.lsj.gs.math.core.common.gameFlowHlr.enity.result.GameFlowHlrResult;
 import org.lsj.gs.math.core.common.logic.gameBetLogResultCtr.enity.IGameBetLogResultSlot;

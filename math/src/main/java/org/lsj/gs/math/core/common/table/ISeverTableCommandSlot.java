@@ -30,6 +30,8 @@ public interface ISeverTableCommandSlot extends IServerTableCommon{
     // TODO 應急用
     CmdOut_NgSpin getSpinResult2(String ctsSpinRequestString); // 取得打擊結果
 
+    void sendCmdOutResultToHumanPlayer(); // 將結果送給客端
+
     void sendSpinResultToHumanPlayer(); // 將打擊結果送給客端
 
     //* 斷線重連相關 *//

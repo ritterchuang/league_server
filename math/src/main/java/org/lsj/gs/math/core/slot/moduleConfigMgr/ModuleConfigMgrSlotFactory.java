@@ -9,6 +9,7 @@ public class ModuleConfigMgrSlotFactory {
     // 創建 老虎機模組設定管理者
     public AbstractModuleConfigMgrSlot create(TableFieldConfig config) {
         switch (GameId.fromId(config.getGameId())) {
+            case LUCKY777:
             case PXKY_JAVA:
             case DYDB_JAVA:
             case SDZW_JAVA:

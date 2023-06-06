@@ -21,6 +21,7 @@ public class GameStnExtendFactory {
             case SZZB_JAVA:
             case _DEVELOP_BY_JAVA:
                 return new GameStnExtendFish(this.config);
+            case LUCKY777:
             case DYDB_JAVA:
             case SDZW_JAVA:
             case WL_JAVA:

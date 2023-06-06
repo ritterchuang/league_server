@@ -145,6 +145,7 @@ public class ConstMathSlot {
         DGRY_BASEGAME(32), // 帝国榮耀基本遊戲
         DGRY_FREEGAME(33), // 帝国榮耀免費遊戲
         DGRY_BONUSGAME(34), // 帝国榮耀額外遊戲
+        LUCKY777_BASEGAME(35), // LUCKY777 基本遊戲
         MODEL_HJ_BASEGAME(800), // 模板虎機基礎遊戲
         MODEL_HJ_FREEGAME(801), // 模板虎機免費遊戲
         DEVELOP_HJ_BASEGAME(990), // 開發基本
@@ -220,6 +221,7 @@ public class ConstMathSlot {
         XJTB_BASEGAME(23), // 仙境探寶基本遊戲
         XJTB_FREEGAME(24), // 仙境探寶免費遊戲
         ZCJZ_BASEGAME(25), // 招財金豬基本遊戲
+        LUCKY777_BASEGAME(26), // LUCKY777 基本遊戲
         MODEL_HJ_BASEGAME(880), // 模組虎機一般遊戲
         MODEL_HJ_FREEGAME(881), // 模組虎機免費遊戲
         MODEL_MEGA_BASEGAME(990),
@@ -754,6 +756,7 @@ public class ConstMathSlot {
         DGRY_BASEGAME(31), // 帝国榮耀 基礎遊戲
         DGRY_FREEGAME(32), // 帝国榮耀 免費遊戲
         DGRY_BONUSGAME(33), // 帝国榮耀 額外遊戲
+        LUCKY777_BASEGAME(34), // LUCKY777 基礎遊戲
         DEVELOP_HJ_BASEGAME(981), // 開發虎機基礎遊戲
         MODEL_HJ_BASEGAME(991), // 模板虎機基礎遊戲
         MODEL_HJ_FREEGAME(992); // 模板虎機免費遊戲

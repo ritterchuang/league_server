@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import org.lsj.gs.math.config.entity.tableFieldConfig.TableFieldConfig;
 import org.lsj.gs.math.config.entity.tableGameConfig.TableGameConfigSlot;
 import org.lsj.gs.math.core.common.ConstMathCommon;
+import org.lsj.gs.math.core.common.cmdOutResultPgr.CmdOutResultPgr;
+import org.lsj.gs.math.core.common.cmdOutResultPgr.entity.CmdOutResult;
 import org.lsj.gs.math.core.common.gameAdjust.GameAdjustSlot;
 import org.lsj.gs.math.core.common.gameFlowHlr.GameFlowHlr;
 import org.lsj.gs.math.core.common.gameFlowHlr.enity.config.GameFlowHlrConfig;
@@ -55,6 +57,7 @@ public class TableCommandSlot extends AbstractTable implements ITableProtocolCom
     private final GameAdjustSlot gameAdjust; // 遊戲調控
     private final ITableUtilSlot tableUtil; // 遊戲桌工具包
 
+    private final CmdOutResultPgr cmdOutResultPgr; // CmdOut結果封裝器
     private final SpinResultPgr spinResultPgr;
 
     public TableCommandSlot(
@@ -112,6 +115,7 @@ public class TableCommandSlot extends AbstractTable implements ITableProtocolCom
         this.tableUtil = tableUtil;
 
         SpinResultPgrConfigModule configModule = new SpinResultPgrConfigModule();
+        this.cmdOutResultPgr = new CmdOutResultPgr();
         this.spinResultPgr = new SpinResultPgr(
                 configModule.generateSpinResultPgrConfig(tableFieldConfig.getGameId(), tableGameConfig),
                 tableUtil);
@@ -273,6 +277,20 @@ public class TableCommandSlot extends AbstractTable implements ITableProtocolCom
         return result;
     }
 
+    public void sendCmdOutResultToHumanPlayer(){
+        // 1. 取得 CmdOutResult
+        CmdOutResult result = this.packageCmdOutResult(this.logic.getGameFlowerResult());
+
+        // 2. 傳送給客端
+        LOG.debug(this.getTableLogTitle() + " ctsSpinRequest:{}, cmdResult:{}",
+                JsonUtil.getInstance().writeValueAsStringWithoutException(this.logic.getSpinRequest()),
+                JsonUtil.getInstance().writeValueAsStringWithoutException(result));
+        this.tableUtil.getWebSocketUtil().sendResponse(
+                this.getHumanGamePlayer().getSession(),
+                JsonUtil.getInstance().writeValueAsStringWithoutException(result)
+        );
+    }
+
     @Override
     public void sendSpinResultToHumanPlayer(){
         ((StateGameBeginSlot)super.stateMgr.getStateMap().get(ConstMathSlot.StateEnumSlot.GAME_BEGIN.getCode())).sendSpinResultToHumanPlayer();
@@ -288,7 +306,7 @@ public class TableCommandSlot extends AbstractTable implements ITableProtocolCom
     @Override
     public void updateLastPlayedProgressResult(String ctsLastPlayedProgressResult) throws TableException {
         try {
-            logic.updateLastPlayedProgressResult(JsonUtil.getInstance().readValue(ctsLastPlayedProgressResult, LastPlayedProgressResult.class));
+            this.logic.updateLastPlayedProgressResult(JsonUtil.getInstance().readValue(ctsLastPlayedProgressResult, LastPlayedProgressResult.class));
         }catch (JsonProcessingException je) {
             LOG.error(this.getTableLogTitle() + " error: {}, updateLastPlayedProgressResult: {}", "json format error", ctsLastPlayedProgressResult);
             this.sendErrorMessageToHumanPlayer(
@@ -330,6 +348,9 @@ public class TableCommandSlot extends AbstractTable implements ITableProtocolCom
         this.tableUtil.reset();
     }
 
+    public CmdOutResult packageCmdOutResult(GameFlowHlrResult gameFlowHlrResult) {
+        return this.cmdOutResultPgr.packageCmdOutResult(gameFlowHlrResult);
+    }
 
     public SpinResult packageSpinResult(GameFlowHlrResult gameFlowHlrResult) {
         return this.spinResultPgr.packageSpinResult(gameFlowHlrResult);

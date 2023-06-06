@@ -11,6 +11,8 @@ public class TableGameConfigFactory {
     // 產生牌桌遊戲設定
     public AbstractTableGameConfig createTableGameConfig(int gameId, IUser user){
         switch(GameId.fromId(gameId)){
+            case LUCKY777: return new TableGameConfigGtrLucky777().generateTableGameConfig(user);
+
             case HHDZ_JAVA: return new TableGameConfigGtrHhdzJava().generateTableGameConfig(user);
             case BJL_JAVA: return new TableGameConfigGtrBjlJava().generateTableGameConfig(user);
             case BRNN_JAVA: return new TableGameConfigGtrBrnnJava().generateTableGameConfig(user);
