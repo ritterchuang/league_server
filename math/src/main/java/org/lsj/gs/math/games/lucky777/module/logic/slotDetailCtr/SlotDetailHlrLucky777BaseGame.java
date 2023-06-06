@@ -56,16 +56,10 @@ public class SlotDetailHlrLucky777BaseGame extends AbstractSlotDetailHlr impleme
         // 5. 取得第三欄結果
         String screenColumn_3 = super.calculateScreenColumn(roundHlrResultNormal.getScreenGtrResult().getScreenSymbol().get(2));
 
-        // 6. 取得第四欄結果
-        String screenColumn_4 = super.calculateScreenColumn(roundHlrResultNormal.getScreenGtrResult().getScreenSymbol().get(3));
-
-        // 7. 取得第五欄結果
-        String screenColumn_5 = super.calculateScreenColumn(roundHlrResultNormal.getScreenGtrResult().getScreenSymbol().get(4));
-
         // 8. 取得總得分
         double baseGameTotalWin = roundHlrResultNormal.getTotalWin();
 
         // 9. 回傳
-        return new SlotDetailLucky777BaseGame(spinCost, baseGameTotalWin, screenColumn_1, screenColumn_2, screenColumn_3, screenColumn_4, screenColumn_5);
+        return new SlotDetailLucky777BaseGame(spinCost, baseGameTotalWin, screenColumn_1, screenColumn_2, screenColumn_3);
     }
 }

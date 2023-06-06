@@ -24,7 +24,7 @@ import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.dampConfig.DampCo
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.frameConfig.FrameConfig;
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.frameConfig.FrameConfigExtendFix;
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.gameConfig.GameConfig;
-import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.gameConfig.GameHitConfigExtendWayGame;
+import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.gameConfig.GameHitConfigExtendLineGame;
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.gameFlowConfig.GameFlowConfig;
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.initialScreenConfig.InitialScreenConfig;
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.initialScreenConfig.InitialScreenConfigExtendNone;
@@ -32,14 +32,12 @@ import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.payTableConfig.Pa
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.payTableConfig.PayTableConfig;
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.paymentConfig.PaymentConfig;
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.paymentConfig.PaymentConfigExtendRatio;
-import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.readyHandConfig.ReadyHandConfig;
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.readyHandConfig.ReadyHandConfigCluster;
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.reelConfig.ReelConfig;
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.reelConfig.ReelConfigExtendReelDependent;
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.reelConfig.ReelStripBox;
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.roundConfig.RoundConfigNormal;
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.roundConfig.roundNormalGameConfig.RoundNormalGameConfigExtendLucky777BaseGame;
-import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.specialFeatureConfig.SpecialFeatureConfig;
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.specialFeatureConfig.SpecialFeatureConfigCluster;
 import org.lsj.gs.math.core.slot.mathSlotConfigHlr.enity.sever.symbolConfig.SymbolConfig;
 import org.lsj.gs.math.core.slot.progressHlrMgr.enity.config.ProgressConfig;
@@ -97,7 +95,7 @@ public class TableGameResourceLucky777Default extends AbstractTableGameResourceS
                                 put(ConstMathSlot.SpinType.NORMAL, new BetSpinConfig(
                                         ConstMathSlot.BetSpinType.NONE_NORMAL,
                                         new BetSpinConfigExtendNoneNormal(),
-                                        new PaymentConfig(ConstMathSlot.PaymentType.RATIO, new PaymentConfigExtendRatio(50.0, 50.0))));
+                                        new PaymentConfig(ConstMathSlot.PaymentType.RATIO, new PaymentConfigExtendRatio(1.0, 1.0))));
                             }
                         });
                     }
@@ -120,11 +118,9 @@ public class TableGameResourceLucky777Default extends AbstractTableGameResourceS
                                         new ReelConfigExtendReelDependent(
                                                 new ArrayList<>() {
                                                     {
-                                                        add(List.of(2, 2, 2, 9, 10, 2, 2, 9, 10, 4, 7, 9, 1, 10, 7, 9, 1, 10, 7, 4, 9, 10, 1, 7, 9, 8, 4, 7, 10, 8, 5, 7, 9, 10, 3, 7, 9, 10, 1, 7, 9, 10, 4, 6, 9, 10, 3, 6, 8, 9, 5, 6, 7, 9, 3, 6, 10, 7, 5, 9, 10, 3, 7, 9, 4, 8, 10, 5, 7, 8, 10, 2, 9, 7, 10, 4, 6, 9, 10, 2, 7, 10, 9, 5, 9, 7, 4, 10, 7, 4, 9, 7, 2, 9, 10, 7, 2, 10, 7, 2, 7, 10, 8, 4, 9, 7, 4, 8, 7, 10, 4, 9, 7, 4, 10, 9, 4, 7, 10, 9, 4, 7, 10));
-                                                        add(List.of(2, 2, 2, 6, 7, 0, 8, 4, 9, 10, 5, 6, 8, 3, 10, 6, 4, 8, 10, 5, 9, 8, 3, 6, 8, 3, 10, 9, 5, 8, 10, 3, 9, 8, 4, 10, 9, 5, 6, 1, 10, 9, 3, 6, 9, 5, 8, 9, 1, 10, 9, 4, 6, 10, 5, 8, 9, 4, 10, 9, 3, 8, 6, 4, 8, 9, 1, 7, 3, 8, 9, 4, 10, 8, 5, 9, 8, 3, 10, 8, 4, 9, 3, 10, 8, 5, 9, 10, 4, 10, 8, 3, 1, 9, 5, 8, 6, 3, 10, 9, 2, 2, 8, 3, 10, 9, 5, 8, 10, 3, 9, 7, 5, 6, 9, 5, 8, 9, 5, 7, 8, 3, 8, 10, 5, 8, 9, 3, 10, 7, 5, 8, 9, 4, 6, 9));
-                                                        add(List.of(6, 7, 8, 2, 2, 2, 6, 8, 2, 2, 6, 9, 10, 5, 8, 6, 7, 1, 8, 6, 7, 1, 8, 7, 3, 6, 8, 5, 10, 6, 4, 7, 10, 1, 4, 6, 8, 9, 0, 6, 7, 10, 1, 6, 9, 5, 8, 6, 4, 10, 6, 9, 5, 7, 8, 4, 6, 7, 3, 8, 9, 5, 7, 6, 3, 10, 6, 8, 5, 7, 6, 5, 8, 7, 3, 6, 8, 5, 7, 6, 4, 8, 7, 5, 6, 8, 3, 7, 6, 5, 8, 7, 4, 3, 6, 8, 5, 7, 6, 3, 8, 7, 5, 6, 8, 3, 7, 6, 5, 7, 6, 9, 3, 7, 9, 5, 10, 8, 3, 7, 9, 5));
-                                                        add(List.of(6, 7, 8, 2, 2, 2, 6, 9, 2, 2, 10, 9, 6, 0, 10, 8, 9, 5, 8, 6, 1, 7, 9, 8, 3, 6, 7, 10, 1, 6, 8, 4, 10, 7, 5, 8, 6, 3, 7, 8, 5, 6, 7, 4, 8, 6, 3, 9, 8, 4, 6, 7, 3, 8, 6, 4, 7, 8, 3, 6, 10, 4, 7, 6, 3, 8, 6, 4, 7, 8, 5, 6, 7, 4, 8, 6, 3, 7, 8, 5, 6, 7, 4, 8, 6, 3, 7, 8, 5, 6, 7, 4, 8, 6, 5, 7, 6, 4));
-                                                        add(List.of(2, 2, 2, 6, 9, 2, 2, 8, 9, 10, 1, 6, 7, 3, 9, 6, 5, 7, 4, 6, 9, 5, 7, 10, 4, 7, 9, 3, 7, 10, 5, 7, 10, 1, 8, 9, 3, 1, 9, 5, 7, 3, 9, 7, 4, 10, 9, 3, 7, 8, 4, 10, 7, 3, 8, 10, 5, 8, 10, 4, 9, 10, 3, 9, 10, 5, 10, 9, 3, 9, 10, 5, 6, 9, 10, 3, 10, 9, 5, 10, 9, 3, 10, 9, 6));
+                                                        add(List.of(3,0,6,4,1,7,5,2,8,6,3,8,7,4,7,8,5,6,8,7,6,4,3,4,3,0,6,4,1,7,5,2,8,6,3,8,7,4,7,8,5,6,8,7,6,4,3,4));
+                                                        add(List.of(3,0,6,4,1,7,5,2,8,6,3,8,7,4,7,8,5,6,8,7,6,4,3,4,3,0,6,4,1,7,5,2,8,6,3,8,7,4,7,8,5,6,8,7,6,4,3,4));
+                                                        add(List.of(3,0,6,4,1,7,5,2,8,6,3,8,7,4,7,8,5,6,8,7,6,4,3,4,3,0,6,4,1,7,5,2,8,6,3,8,7,4,7,8,5,6,8,7,6,4,3,4,6));
                                                     }
                                                 }),
                                         ConstMathSlot.ReelRtpType.HIGH,
@@ -135,11 +131,9 @@ public class TableGameResourceLucky777Default extends AbstractTableGameResourceS
                                         new ReelConfigExtendReelDependent(
                                                 new ArrayList<>() {
                                                     {
-                                                        add(List.of(2, 2, 2, 6, 7, 2, 2, 8, 7, 2, 2, 2, 8, 9, 1, 7, 8, 3, 1, 9, 8, 5, 1, 10, 9, 4, 1, 6, 9, 4, 10, 6, 5, 9, 10, 3, 8, 7, 4, 9, 8, 3, 7, 10, 4, 9, 8, 5, 10, 6, 4, 9, 8, 3, 6, 10, 5, 9, 8, 3, 10, 9, 5, 8, 10, 9));
-                                                        add(List.of(2, 2, 2, 6, 7, 2, 2, 6, 7, 3, 8, 6, 1, 7, 8, 5, 6, 9, 1, 8, 6, 5, 7, 8, 1, 9, 10, 4, 8, 7, 1, 9, 8, 3, 9, 10, 5, 8, 9, 4, 7, 8, 5, 10, 7, 3, 8, 10, 5, 7, 9, 3, 8, 10, 5, 9, 10, 3, 7, 8, 9));
-                                                        add(List.of(2, 2, 2, 6, 7, 2, 2, 6, 8, 0, 10, 6, 4, 8, 9, 3, 10, 9, 8, 4, 10, 9, 8, 5, 10, 9, 7, 4, 10, 8, 7, 3, 9, 10, 7, 5, 9, 10, 8, 4, 9, 10, 8, 3, 9, 10, 8, 3, 9, 10, 8, 3, 9, 8, 4, 10, 7));
-                                                        add(List.of(2, 2, 2, 6, 7, 2, 2, 6, 8, 9, 4, 7, 9, 5, 6, 7, 4, 6, 7, 3, 6, 7, 4, 6, 7, 3, 6, 10, 4, 6, 7, 5, 10, 7, 3, 6, 10, 5, 6, 7, 10));
-                                                        add(List.of(2, 2, 2, 6, 7, 2, 2, 6, 7, 10, 3, 9, 10, 4, 9, 7, 5, 9, 10, 4, 9, 8, 5, 9, 10, 8, 4, 9, 10, 8, 5, 7, 9, 4, 8, 10, 3, 6, 8, 5, 7, 10, 3, 6, 8, 9, 3, 6, 8, 9, 5, 7, 10, 8, 3, 7, 8, 4, 10, 9, 7, 3, 6, 8, 9));
+                                                        add(List.of(3,0,6,4,1,7,5,2,8,6,3,8,7,4,7,8,5,6,8,7,6,4,3,4,3,6,4,7,5,8,6,8,7,5,8,6,8,7,6,4,3,4,6,8,7,5,6,8,7,8,7,8,7,8));
+                                                        add(List.of(3,0,6,4,1,7,5,2,8,6,3,8,7,4,7,8,5,6,8,7,6,5,3,5,3,6,5,7,5,8,6,8,7,5,8,6,8,7,6,5,3,5,6,8,7,5,6,8,7,8,7,8,7,8));
+                                                        add(List.of(3,0,6,4,1,7,5,2,8,4,3,8,7,4,7,8,5,4,8,7,4,4,3,4,3,4,4,7,5,8,6,8,7,5,8,4,8,7,6,4,3,4,4,8,7,5,6,5,7,8,7,8,7,8,5));
                                                     }
                                                 }),
                                         ConstMathSlot.ReelRtpType.LOW,
@@ -149,60 +143,80 @@ public class TableGameResourceLucky777Default extends AbstractTableGameResourceS
                 new InitialScreenConfig(
                         new ClientReelResult(0, ConstPgrSlot.ClientReelStopType.STOP_BY_DEPENDENT_REEL_BOX, new ClientReelStopResultExtendStopByDependentReelBox(new ArrayList<>() {
                             {
-                                add(new StopBox(4, 1));
-                                add(new StopBox(17, 1));
-                                add(new StopBox(42, 1));
-                                add(new StopBox(41, 1));
-                                add(new StopBox(14, 1));
+                                add(new StopBox(1, 1));
+                                add(new StopBox(0, 1));
+                                add(new StopBox(2, 2));
                             }
                         })),
                         new FrameResult(ConstMathSlot.FrameType.FIX, new FrameResultExtendFix(new ArrayList<>() {
                             {
-                                add(4);
-                                add(4);
-                                add(4);
-                                add(4);
-                                add(4);
+                                add(1);
+                                add(1);
+                                add(1);
                             }
                         })),
                         ConstMathSlot.InitialScreenType.NONE, new InitialScreenConfigExtendNone()),
                 new FrameConfig(
                 ConstMathSlot.FrameType.FIX,
-                new FrameConfigExtendFix(List.of(4, 4, 4, 4, 4))),
+                new FrameConfigExtendFix(List.of(1, 1, 1))),
                 new SymbolConfig(new ArrayList<>() {
                     {
-                        add(ConstMathSlot.SymbolAttribute.WILD_01);
-                        add(ConstMathSlot.SymbolAttribute.FREE_GAME_01);
                         add(ConstMathSlot.SymbolAttribute.M1);
                         add(ConstMathSlot.SymbolAttribute.M2);
                         add(ConstMathSlot.SymbolAttribute.M3);
                         add(ConstMathSlot.SymbolAttribute.M4);
-                        add(ConstMathSlot.SymbolAttribute.ACE);
-                        add(ConstMathSlot.SymbolAttribute.KING);
-                        add(ConstMathSlot.SymbolAttribute.QUEEN);
-                        add(ConstMathSlot.SymbolAttribute.JOKER);
-                        add(ConstMathSlot.SymbolAttribute.TEN);
+                        add(ConstMathSlot.SymbolAttribute.M5);
+                        add(ConstMathSlot.SymbolAttribute.M6);
+                        add(ConstMathSlot.SymbolAttribute.M7);
+                        add(ConstMathSlot.SymbolAttribute.M8);
+                        add(ConstMathSlot.SymbolAttribute.M9);
                     }
                 },
                         new ArrayList<>() {
                             {
-                                add(ConstMathSlot.SymbolAttributeType.WILD_SYMBOL);
-                                add(ConstMathSlot.SymbolAttributeType.FREE_GAME_SYMBOL);
                                 add(ConstMathSlot.SymbolAttributeType.MAIN_SYMBOL);
                                 add(ConstMathSlot.SymbolAttributeType.MAIN_SYMBOL);
                                 add(ConstMathSlot.SymbolAttributeType.MAIN_SYMBOL);
                                 add(ConstMathSlot.SymbolAttributeType.MAIN_SYMBOL);
-                                add(ConstMathSlot.SymbolAttributeType.BASE_SYMBOL);
-                                add(ConstMathSlot.SymbolAttributeType.BASE_SYMBOL);
-                                add(ConstMathSlot.SymbolAttributeType.BASE_SYMBOL);
-                                add(ConstMathSlot.SymbolAttributeType.BASE_SYMBOL);
-                                add(ConstMathSlot.SymbolAttributeType.BASE_SYMBOL);
+                                add(ConstMathSlot.SymbolAttributeType.MAIN_SYMBOL);
+                                add(ConstMathSlot.SymbolAttributeType.MAIN_SYMBOL);
+                                add(ConstMathSlot.SymbolAttributeType.MAIN_SYMBOL);
+                                add(ConstMathSlot.SymbolAttributeType.MAIN_SYMBOL);
+                                add(ConstMathSlot.SymbolAttributeType.MAIN_SYMBOL);
                             }
                         }),
                 new DampConfig(ConstMathSlot.DampType.ONE_DAMP, ConstMathSlot.DampType.ONE_DAMP),
-                new GameConfig(ConstMathSlot.GameHitType.WAY_GAME, new GameHitConfigExtendWayGame(ConstMathSlot.GameHitDirectionType.LEFT_TO_RIGHT)),
+                new GameConfig(ConstMathSlot.GameHitType.LINE_GAME, new GameHitConfigExtendLineGame(ConstMathSlot.GameHitDirectionType.LEFT_TO_RIGHT, new ArrayList<>(){{add(List.of(0,0,0));}})),
                 new PayTableConfig(new ArrayList<>() {
                     {
+                        add(new PayCombo(
+                                new ArrayList<>() {
+                                    {
+                                        add(0);
+                                    }
+                                },
+                                new ArrayList<>() {
+                                    {
+                                        add(0);
+                                        add(0);
+                                        add(1000);
+                                    }
+                                }
+                        ));
+                        add(new PayCombo(
+                                new ArrayList<>() {
+                                    {
+                                        add(1);
+                                    }
+                                },
+                                new ArrayList<>() {
+                                    {
+                                        add(0);
+                                        add(0);
+                                        add(500);
+                                    }
+                                }
+                        ));
                         add(new PayCombo(
                                 new ArrayList<>() {
                                     {
@@ -212,10 +226,8 @@ public class TableGameResourceLucky777Default extends AbstractTableGameResourceS
                                 new ArrayList<>() {
                                     {
                                         add(0);
-                                        add(10);
-                                        add(50);
-                                        add(100);
-                                        add(300);
+                                        add(0);
+                                        add(150);
                                     }
                                 }
                         ));
@@ -229,9 +241,7 @@ public class TableGameResourceLucky777Default extends AbstractTableGameResourceS
                                     {
                                         add(0);
                                         add(0);
-                                        add(50);
-                                        add(100);
-                                        add(150);
+                                        add(80);
                                     }
                                 }
                         ));
@@ -246,8 +256,6 @@ public class TableGameResourceLucky777Default extends AbstractTableGameResourceS
                                         add(0);
                                         add(0);
                                         add(50);
-                                        add(100);
-                                        add(150);
                                     }
                                 }
                         ));
@@ -261,9 +269,7 @@ public class TableGameResourceLucky777Default extends AbstractTableGameResourceS
                                     {
                                         add(0);
                                         add(0);
-                                        add(20);
-                                        add(80);
-                                        add(120);
+                                        add(30);
                                     }
                                 }
                         ));
@@ -277,9 +283,7 @@ public class TableGameResourceLucky777Default extends AbstractTableGameResourceS
                                     {
                                         add(0);
                                         add(0);
-                                        add(10);
-                                        add(50);
-                                        add(100);
+                                        add(20);
                                     }
                                 }
                         ));
@@ -294,8 +298,6 @@ public class TableGameResourceLucky777Default extends AbstractTableGameResourceS
                                         add(0);
                                         add(0);
                                         add(10);
-                                        add(50);
-                                        add(100);
                                     }
                                 }
                         ));
@@ -310,51 +312,197 @@ public class TableGameResourceLucky777Default extends AbstractTableGameResourceS
                                         add(0);
                                         add(0);
                                         add(5);
-                                        add(20);
-                                        add(100);
                                     }
                                 }
                         ));
                         add(new PayCombo(
                                 new ArrayList<>() {
                                     {
-                                        add(9);
+                                        add(0);
+                                        add(1);
                                     }
                                 },
                                 new ArrayList<>() {
                                     {
                                         add(0);
                                         add(0);
-                                        add(5);
-                                        add(20);
                                         add(100);
                                     }
                                 }
                         ));
                         add(new PayCombo(
-                                new ArrayList<>() {
-                                    {
-                                        add(10);
-                                    }
-                                },
                                 new ArrayList<>() {
                                     {
                                         add(0);
                                         add(2);
-                                        add(5);
-                                        add(10);
+                                    }
+                                },
+                                new ArrayList<>() {
+                                    {
+                                        add(0);
+                                        add(0);
                                         add(100);
                                     }
                                 }
                         ));
-
+                        add(new PayCombo(
+                                new ArrayList<>() {
+                                    {
+                                        add(1);
+                                        add(2);
+                                    }
+                                },
+                                new ArrayList<>() {
+                                    {
+                                        add(0);
+                                        add(0);
+                                        add(100);
+                                    }
+                                }
+                        ));
+                        add(new PayCombo(
+                                new ArrayList<>() {
+                                    {
+                                        add(0);
+                                        add(1);
+                                        add(2);
+                                    }
+                                },
+                                new ArrayList<>() {
+                                    {
+                                        add(0);
+                                        add(0);
+                                        add(100);
+                                    }
+                                }
+                        ));
+                        add(new PayCombo(
+                                new ArrayList<>() {
+                                    {
+                                        add(3);
+                                        add(4);
+                                    }
+                                },
+                                new ArrayList<>() {
+                                    {
+                                        add(0);
+                                        add(0);
+                                        add(3);
+                                    }
+                                }
+                        ));
+                        add(new PayCombo(
+                                new ArrayList<>() {
+                                    {
+                                        add(3);
+                                        add(5);
+                                    }
+                                },
+                                new ArrayList<>() {
+                                    {
+                                        add(0);
+                                        add(0);
+                                        add(3);
+                                    }
+                                }
+                        ));
+                        add(new PayCombo(
+                                new ArrayList<>() {
+                                    {
+                                        add(4);
+                                        add(5);
+                                    }
+                                },
+                                new ArrayList<>() {
+                                    {
+                                        add(0);
+                                        add(0);
+                                        add(3);
+                                    }
+                                }
+                        ));
+                        add(new PayCombo(
+                                new ArrayList<>() {
+                                    {
+                                        add(3);
+                                        add(4);
+                                        add(5);
+                                    }
+                                },
+                                new ArrayList<>() {
+                                    {
+                                        add(0);
+                                        add(0);
+                                        add(3);
+                                    }
+                                }
+                        ));
+                        add(new PayCombo(
+                                new ArrayList<>() {
+                                    {
+                                        add(6);
+                                        add(7);
+                                    }
+                                },
+                                new ArrayList<>() {
+                                    {
+                                        add(0);
+                                        add(0);
+                                        add(1);
+                                    }
+                                }
+                        ));
+                        add(new PayCombo(
+                                new ArrayList<>() {
+                                    {
+                                        add(6);
+                                        add(8);
+                                    }
+                                },
+                                new ArrayList<>() {
+                                    {
+                                        add(0);
+                                        add(0);
+                                        add(1);
+                                    }
+                                }
+                        ));
+                        add(new PayCombo(
+                                new ArrayList<>() {
+                                    {
+                                        add(7);
+                                        add(8);
+                                    }
+                                },
+                                new ArrayList<>() {
+                                    {
+                                        add(0);
+                                        add(0);
+                                        add(1);
+                                    }
+                                }
+                        ));
+                        add(new PayCombo(
+                                new ArrayList<>() {
+                                    {
+                                        add(6);
+                                        add(7);
+                                        add(8);
+                                    }
+                                },
+                                new ArrayList<>() {
+                                    {
+                                        add(0);
+                                        add(0);
+                                        add(1);
+                                    }
+                                }
+                        ));
                     }
                 }), new ProgressConfig(ConstMathSlot.ProgressType.ROUND, new ProgressConfigExtendRound(1, 0, 1)), new SpecialFeatureConfigCluster(new ArrayList<>() {{}
-                }), new ReadyHandConfigCluster(List.of(
-                        new ReadyHandConfig(ConstMathSlot.ReadyHandType.READY_HAND_01, ConstMathSlot.ReadyHandLimitType.NO_LIMIT)
-                )), ConstMathSlot.RoundNormalGameType.LUCKY777_BASEGAME,
+                }), new ReadyHandConfigCluster(),
+                ConstMathSlot.RoundNormalGameType.LUCKY777_BASEGAME,
                 new RoundNormalGameConfigExtendLucky777BaseGame()
-
         ), ConstMathSlot.SlotDetailType.LUCKY777_BASEGAME
         );
 
